@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            width: 100%;
+            background: rgba(29, 161, 242, 1);
+            display: flow-root;
+
+            font-size: 16px;
+            font-family: SimSun;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .menu .menu-logo {
+            float: left;
+            margin: 6px 0 6px 28px;
+        }
+
+        .menu-logo img {
+            width: 36px;
+            height: 36px;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        .menu .menu-user {
+            float: right;
+            margin: 12px 64px 10px 0;
+            /* display: flow-root; */
+            
+        }
+
+        .menu-user img:nth-child(0n+1) {
+            width: 22px;
+            height: 24px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .menu-user img:nth-child(0n+3) {
+            width: 14px;
+            height: 8px;
+            margin-left: 14px;
+            transform: rotate(0.75turn);
+        }
+
+        .menu-user img:nth-child(0n+3):hover {
+            transform: rotate(0turn);
+        }
+
+        .menu-user .menu-user-setting {
+
+            position: absolute;
+            background: #FFFFFF;
+            margin-top: 5px;
+            list-style: none;
+            font-size: 14px;
+            font-family: SimSun;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            display: none;
+        }
+
+        .menu-user-setting li {
+            padding: 8px 44px;
+            border: 1px solid rgba(221, 221, 221, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="menu-logo">
+            <img src="../demo/img/KARAlogo80@2x.png" alt="">
+            Kara广告联盟
+        </div>
+        <div class="menu-user">
+            <img src="../demo/img/user@2x.png" alt="">
+            <span>小花花哈</span>
+            <img src="../demo/img/dropdown@2x.png" alt="" id="dropdown">
+            <ul class="menu-user-setting">
+                <li>个人资料</li>
+                <li>修改密码</li>
+                <li>安全退出</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.2.js" integrity="sha256-B8sHvfukDO/4abMp60ju7eQXQLps6DPdODC9CvSeSJg="
+    crossorigin="anonymous">
+    </script>
+<script>
+    $(function () {
+        var dropDown = document.querySelector("#dropdown");
+        var usersetting = document.querySelector(".menu-user-setting")
+
+        $(dropDown).on({
+            mouseenter: function () {
+                $(usersetting).css("display","block");
+            },
+            mouseleave: function () {
+                $(usersetting).css("display","none");
+            }
+        });
+
+        $(usersetting).on("")
+
+    })
+</script>
+
+</html>
