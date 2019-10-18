@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .container {
+            margin: auto;
+        }
+
+        .header {
+            overflow: hidden;
+        }
+
+        .header h1 {
+            text-align: center;
+            margin: 24px 0 18px;
+            font-size: 24px;
+            font-family: "Microsoft YaHei";
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        h1 .logo {
+            vertical-align: text-top;
+            margin-right: 10px;
+        }
+
+        .content{
+            width: 640px;
+            height: 796px;
+            background: brown;
+        }
+        
+        .bg {
+            /* position: absolute;
+            left: 0;
+            top: 0; */
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: url("../demo/img/bg@2x.png") no-repeat 0 0;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="bg">
+        <div class="container">
+            <div class="header" place>
+                <h1><img src="../demo/img/KARAlogo80@2x.png" alt="" class="logo">Kara&nbsp广告联盟</h1>
+            </div>
+            <div class="content">
+            
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-2.1.2.js" integrity="sha256-B8sHvfukDO/4abMp60ju7eQXQLps6DPdODC9CvSeSJg="
+    crossorigin="anonymous">
+    </script>
+
+</html>
