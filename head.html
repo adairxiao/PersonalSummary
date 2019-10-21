@@ -5,62 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kara广告联盟</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
 
-        .menu {
+        /* header start */
+        .header {
             width: 100%;
             background: rgba(29, 161, 242, 1);
             display: flow-root;
 
             font-size: 16px;
-            font-family: SimSun;
+            font-family: "SimSun";
             font-weight: 400;
             color: rgba(255, 255, 255, 1);
         }
 
-        .menu .menu-logo {
+        .header .header-logo {
             float: left;
             margin: 6px 0 6px 28px;
         }
 
-        .menu-logo img {
+        .header-logo img {
             width: 36px;
             height: 36px;
             margin-right: 20px;
             vertical-align: middle;
         }
 
-        .menu .menu-user {
+        .header .header-user {
             float: right;
             margin: 12px 64px 10px 0;
             /* display: flow-root; */
-            
+
         }
 
-        .menu-user img:nth-child(0n+1) {
+        .header-user img:nth-child(0n+1) {
             width: 22px;
             height: 24px;
             margin-right: 8px;
             vertical-align: middle;
         }
 
-        .menu-user img:nth-child(0n+3) {
+        .header-user img:nth-child(0n+3) {
             width: 14px;
             height: 8px;
             margin-left: 14px;
             transform: rotate(0.75turn);
         }
 
-        .menu-user img:nth-child(0n+3):hover {
+        .header-user img:nth-child(0n+3):hover {
             transform: rotate(0turn);
         }
 
-        .menu-user .menu-user-setting {
+        .header-user .header-user-setting {
 
             position: absolute;
             background: #FFFFFF;
@@ -73,30 +74,298 @@
             display: none;
         }
 
-        .menu-user-setting li {
+        .header-user-setting li {
             padding: 8px 44px;
             border: 1px solid rgba(221, 221, 221, 1);
         }
+
+        /* header end */
+        /* menu start*/
+        .menu {
+            background-color: red;
+        }
+
+        .menu .side-bar {
+            float: left;
+            width: 180px;
+            
+        }
+
+        .side-bar ul {
+            list-style: none;
+            font-size: 18px;
+            font-family: "SimSun";
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            
+        }
+
+        .side-bar li {
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(221, 221, 221, 1);
+            
+            overflow: hidden;
+            position: relative;
+        }
+
+        .side-bar .selected-li {
+            color: rgba(29, 161, 242, 1);
+            background: rgba(230, 236, 240, 1);
+
+        }
+
+        .side-bar ul li i {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 13px;
+            width: 13px;
+            height: 15px;
+            background: url("../project/images/多边形 1@2x.png") no-repeat 0 0;
+        }
+
+        .menu .nav {
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            background: rgba(230, 236, 240, 1);
+            border: 1px solid rgba(221, 221, 221, 1);
+            font-size: 18px;
+            font-family: "SimSun";
+            font-weight: 400;
+            color: rgba(101, 119, 134, 1);
+        }
+
+        .nav img {
+            margin-left: 20px;
+            width: 20px;
+            height: 20px;
+            vertical-align: text-bottom;
+        }
+
+
+
+        /* menu end*/
+
+        /* main start */
+
+        /* main header start */
+        .container {
+            overflow: hidden;
+
+        }
+
+        .container .container-header {
+            margin: 18px 19px;
+            overflow: hidden;
+        }
+
+        .container-header ul {
+            list-style: none;
+            font-size: 16px;
+            font-family: "SimSun";
+            font-weight: 400;
+            color: rgba(101, 119, 134, 1);
+
+
+        }
+
+        .container-header ul li {
+            float: left;
+            width: 16.6%;
+            height: 80px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid rgba(221, 221, 221, 1);
+            background: rgba(255, 255, 255, 1);
+            box-sizing: border-box;
+        }
+
+        .container-header ul li span {
+            font-size: 22px;
+            color: rgba(51, 51, 51, 1);
+        }
+
+        /* main header end */
+        /* main content start */
+        .container-content {
+            /* margin-left: 180px; */
+            overflow: hidden;
+            margin: 18px 19px;
+            /* background: red; */
+        }
+
+        .container-content table {
+            width: 100%;
+        }
+
+        .container-content table .title {
+            width: 100%;
+            line-height: 52px;
+            background: rgba(221, 221, 221, 1);
+            border: 1px solid rgba(221, 221, 221, 1);
+            text-align: left;
+            font-size: 20px;
+            font-family: "SimSun";
+            font-weight: 400;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        table .title img {
+            vertical-align: sub;
+            margin-left: 20px;
+        }
+
+        .container-content  table{
+            border-collapse: collapse;
+        }
+        table tr {
+            font-size: 22px;
+            font-family: "SimSun";
+            font-weight: 400;
+
+            color: rgba(51, 51, 51, 1);
+        }
+
+        table tr:not(:nth-child(1n+2)) {
+            color: rgba(101, 119, 134, 1);
+        }
+        table tr td {
+            width: 33%;
+            text-align: center;
+            line-height: 40px;
+            border:1px solid #ddd;
+            
+        }
+
+        /* main content end */
+        /* main end*/
     </style>
 </head>
 
 <body>
-    <div class="menu">
-        <div class="menu-logo">
-            <img src="../demo/img/KARAlogo80@2x.png" alt="">
+    <div class="header">
+        <div class="header-logo">
+            <img src="../project/images/KARAlogo80@2x.png" alt="">
             Kara广告联盟
         </div>
-        <div class="menu-user">
-            <img src="../demo/img/user@2x.png" alt="">
+        <div class="header-user">
+            <img src="../project/images/user@2x.png" alt="">
             <span>小花花哈</span>
-            <img src="../demo/img/dropdown@2x.png" alt="" id="dropdown">
-            <ul class="menu-user-setting">
+            <img src="../project/images/下拉@2x.png" alt="" id="dropdown">
+            <ul class="header-user-setting">
                 <li>个人资料</li>
                 <li>修改密码</li>
                 <li>安全退出</li>
             </ul>
         </div>
     </div>
+    <div class="menu">
+        <div class="side-bar">
+            <ul>
+                <li class="selected-li"><a>总览</a><i></i></li>
+                <li><a>通知公告</a></li>
+                <li><a>广告链接</a></li>
+                <li><a>推广统计</a></li>
+                <li><a>申请提现</a></li>
+                <li><a>结算明细</a></li>
+                <li><a>代理管理</a></li>
+                <li><a>个人中心</a></li>
+            </ul>
+        </div>
+        <div class="nav">
+            <img src="../project/images/首页 (1)@2x.png" alt="">
+            Home &gt 总览
+        </div>
+    </div>
+    <main>
+        <div class="container">
+            <div class="container-header">
+                <ul>
+                    <li>总注册<br><span>5628人</span> </li>
+                    <li>总消费<br><span>5628</span></li>
+                    <li>分成比例<br><span>5628</span></li>
+                    <li>分成金额<br><span>5628</span></li>
+                    <li>待支付<br><span>5628</span></li>
+                    <li>已支付<br><span>5628</span></li>
+                </ul>
+            </div>
+
+            <div class="container-content">
+                <table >
+                    <caption class="title"><img src="../project/images/日历@2x.png" alt=""> 近30天用户统计</caption>
+                    <tr>
+                        <td>日期</td>
+                        <td>注册用户数</td>
+                        <td>总消费金额</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                    <tr>
+                        <td>2019-06-22</td>
+                        <td>20</td>
+                        <td>200元</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
 </body>
 <script src="https://code.jquery.com/jquery-2.1.2.js" integrity="sha256-B8sHvfukDO/4abMp60ju7eQXQLps6DPdODC9CvSeSJg="
     crossorigin="anonymous">
@@ -108,10 +377,10 @@
 
         $(dropDown).on({
             mouseenter: function () {
-                $(usersetting).css("display","block");
+                $(usersetting).css("display", "block");
             },
             mouseleave: function () {
-                $(usersetting).css("display","none");
+                $(usersetting).css("display", "none");
             }
         });
 

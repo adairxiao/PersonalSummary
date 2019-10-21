@@ -1,10 +1,12 @@
 /* public stater */
+
 * {
     padding: 0;
     margin: 0;
 }
 
 /* button的样式一 */
+
 .button_style_one {
     width: 150px;
     height: 40px;
@@ -19,6 +21,7 @@
 }
 
 /* button的样式二 */
+
 .button_style_tow {
     width: 150px;
     height: 40px;
@@ -34,12 +37,14 @@
 }
 
 /*main居中*/
+
 main {
     min-height: 100vh;
     display: flex;
 }
 
 /*背景*/
+
 .bg {
     width: 100%;
     height: 100%;
@@ -55,12 +60,12 @@ main {
 }
 
 /*header*/
+
 .container .header {
     margin: 5px auto;
 }
 
 .header h1 {
-
     text-align: center;
     margin: 24px 0 18px;
     font-size: 24px;
@@ -77,6 +82,7 @@ main {
 }
 
 /*content*/
+
 .container .content {
     background: #fff;
     border-radius: 5px;
@@ -86,8 +92,8 @@ main {
 
 /* public end */
 
-
 /* login */
+
 .login-content {
     display: none;
 }
@@ -153,8 +159,8 @@ main {
 
 /* login end */
 
-
 /*registered stater*/
+
 .container .registration {
     text-align: center;
     display: none;
@@ -167,12 +173,12 @@ main {
     font-family: "SimSun";
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
+    margin-bottom: 20px;
 }
 
 .registration_input_content input {
     width: 350px;
     height: 40px;
-    margin-bottom: 20px;
     border: 1px solid rgba(221, 221, 221, 1);
     font-size: 18px;
     font-family: "SimSun";
@@ -184,41 +190,76 @@ main {
     margin-top: 44px;
 }
 
-.registration_input_content:nth-child(0n+10) input,
-.registration_input_content:nth-child(0n+11) input {
+.registration_input_content:nth-child(0n+10) input, .registration_input_content:nth-child(0n+11) input {
     width: 288px;
+}
+
+.registration_input_content:nth-last-child(-n+2) {
+    margin-bottom: 0;
 }
 
 /*registered end*/
 
-
 /* forget password  stater*/
+
 .forget {
-    /* display: none; */
+    /* display: none;    */
     font-size: 18px;
-    font-family: Microsoft YaHei;
+    font-family: "Microsoft YaHei";
     font-weight: 400;
     color: rgba(51, 51, 51, 1);
 }
-
 
 .forget .forget_input_content {
     width: 350px;
     margin: 0 30px;
     padding: 10px 0 5px 0;
     border-bottom: 1px solid rgba(221, 221, 221, 1);
-    background-color: red;
-}
 
+    /* background-color: red; */
+}
+.forget_input_content:nth-child(1){
+    margin-top: 40px;
+}
 .forget_input_content input {
     height: 25px;
+    width: 278px;
     outline: none;
     padding-left: 5px;
     border: 0px;
+    font-size:18px;
+    font-family:Microsoft YaHei;
+    font-weight:400;
+    color:rgba(204,204,204,1);
+}
+
+.forget_input_content:nth-child(0n+2) input {
+    width: 245px;
+}
+
+.forget_input_content button {
+    width: 90px;
+    height: 30px;
+    border: 0;
+    font-size: 7px;
+    font-family: "Microsoft YaHei";
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    outline: none;
+    background: rgba(29, 161, 242, 1);
+    border-radius: 6px;
+}
+
+.forget_input_content:nth-child(0n+4) input {
+    width: 260px;
+}
+
+.forget_button {
+    text-align: center;
 }
 
 .define {
-    margin: 0 auto 42px;
+    margin: 40px auto 42px;
 }
 
 /* forget password  end*/
