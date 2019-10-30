@@ -91,10 +91,67 @@
     bottom: 42%;
     display: none;
 }
+
+/* 沙发 */
+.computer .computer-shirt-02{
+    position: absolute;
+    left: 387px;
+    bottom: 340px;
+    width: 101px;
+    display: none;
+}
+/* 白色遮罩 */
+.computer .cover{
+    position: absolute;
+    left: 386px;
+    bottom: 325px;
+    width: 101px;
+    height: 100px;
+    background-color: white;
+    z-index: 2;
+    display: none;
+}
+
 /* section-item-2 end */
+
+/* section-item-3 start*/
 .section-item-3{
     background: #ef674d ;
 }
+
+.section-item-3 .main{
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    background: url(../images/main.png) no-repeat center center;
+    left:50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+}
+
+.main .select{
+    width: 300px;
+    height: 250px;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    /* background: pink; */
+}
+
+.main .main-shirt-02{
+    position: absolute;
+    left: 115px;
+    bottom: 200px;
+    display: none;
+}
+
+.select .btn-01{
+    position: absolute;
+    bottom: 10px;
+
+}
+
+/* section-item-3 end*/
 .section-item-4{
     background: #fed url("../images/t1iresfnxaxxca6rfn-2000-600.png")  no-repeat center bottom;
 }

@@ -46,6 +46,18 @@ $(document).ready(function () {
         },
 
 
+        onLeave:function(origin, destination, direction){
+            if(origin){
+                console.log(destination.index);
+                
+                if(destination.index ==2){
+                    $(".computer-shirt-02").show().stop().animate({"bottom":0},500);
+                    $(".cover").show();
+                };
+                
+            }
+        },
+
 
     });
 
