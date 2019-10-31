@@ -1,35 +1,41 @@
 /* 8个背景样式 */
+
 /* section-item-1 start */
-.section-item-1{
-    background: #fadd67 url("../images/t1fpyqfltdxxaiulhh-990-600.png")  no-repeat center bottom;
+
+.section-item-1 {
+    background: #fadd67 url("../images/t1fpyqfltdxxaiulhh-990-600.png") no-repeat center bottom;
 }
 
-.section-item-1 .fly{
+.section-item-1 .fly {
     position: absolute;
     top: 10%;
     right: 20%;
 }
 
-.section-item-1 .shirt-1{
+.section-item-1 .shirt-1 {
     position: absolute;
     left: 50%;
     margin-left: -200px;
     margin-top: 0px;
 }
-.section-item-1 .goods{
+
+.section-item-1 .goods {
     position: absolute;
     left: 50%;
     margin-left: -400px;
-    bottom: 100px; 
+    bottom: 100px;
 }
 
 /* section-item-1 end */
+
 /* section-item-2 start */
-.section-item-2{
-    background: #84a2d4 url("../images/t1zdgpfi8exxca6rfn-2000-600.png")  no-repeat center bottom;
+
+.section-item-2 {
+    background: #84a2d4 url("../images/t1zdgpfi8exxca6rfn-2000-600.png") no-repeat center bottom;
+    z-index: 10;
 }
 
-.section-item-2 .computer{
+.section-item-2 .computer {
     width: 990px;
     height: 500px;
     position: absolute;
@@ -38,10 +44,9 @@
     transform: translateX(-50%);
     bottom: 0;
     /* background:rgba(0,0,0,.3); */
-    overflow: hidden;
 }
-.section-item-2 .words-01,
-.section-item-2 .words-02{
+
+.section-item-2 .words-01, .section-item-2 .words-02 {
     width: 361px;
     height: 25px;
     position: absolute;
@@ -50,86 +55,92 @@
     bottom: 550px;
     z-index: 1;
 }
-.section-item-2 .words-02{
+
+.section-item-2 .words-02 {
     display: none;
 }
 
-.computer .search{
+.computer .search {
     width: 222px;
     height: 45px;
     background: url("../images/search.png") no-repeat;
     position: absolute;
-    top:30%;
+    top: 30%;
     right: -5%;
     display: none;
 }
 
-.search .search-words{
+.search .search-words {
     position: absolute;
-    top:5%;
+    top: 5%;
     right: 13%;
     opacity: 0;
 }
 
-.computer .search-02-1{
+.computer .search-02-1 {
     width: 222px;
     height: 45px;
     position: absolute;
-    top:30%;
+    top: 30%;
     right: 40%;
     display: none;
     z-index: 1;
 }
 
-.computer .goods-441-218{
+.computer .goods-441-218 {
     /*441  218*/
-
     width: 220px;
     height: 106px;
     position: absolute;
-    right:28%;
+    right: 28%;
     bottom: 42%;
     display: none;
 }
 
 /* 沙发 */
-.computer .computer-shirt-02{
+
+.computer .computer-shirt-02 {
     position: absolute;
     left: 387px;
     bottom: 340px;
     width: 101px;
     display: none;
+    z-index: 2;
 }
+
 /* 白色遮罩 */
-.computer .cover{
+
+.computer .cover {
     position: absolute;
     left: 386px;
     bottom: 325px;
     width: 101px;
     height: 100px;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
     display: none;
 }
 
 /* section-item-2 end */
 
 /* section-item-3 start*/
-.section-item-3{
-    background: #ef674d ;
+
+.section-item-3 {
+    background: #ef674d;
+    z-index:9;
 }
 
-.section-item-3 .main{
+.section-item-3 .main {
     position: absolute;
     width: 700px;
     height: 500px;
     background: url(../images/main.png) no-repeat center center;
-    left:50%;
+    left: 50%;
     transform: translateX(-50%);
     bottom: 50px;
 }
 
-.main .select{
+.main .select {
     width: 300px;
     height: 250px;
     position: absolute;
@@ -138,79 +149,167 @@
     /* background: pink; */
 }
 
-.main .main-shirt-02{
+.main .main-shirt-02, .main .main-t1f {
     position: absolute;
     left: 115px;
+    bottom: 200px;
+    /* display: none; */
+}
+
+.main .main-t1f {
+    display: none;
+}
+
+.select .img-01-a {
+    position: absolute;
+    bottom: 119px;
+    opacity: 0;
+}
+
+.select .btn-01 {
+    position: absolute;
+    bottom: 10px;
+}
+
+/* section-item-3 end*/
+
+/* section-item-4 start*/
+
+.section-item-4 {
+    background: #fed url("../images/t1iresfnxaxxca6rfn-2000-600.png") no-repeat center bottom;
+    z-index: 8;
+}
+
+.section-item-4 .cloud {
+    position: absolute;
+    left: 50%;
+    bottom: 550px;
+}
+
+.section-item-4 .word{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 500px;
+}
+.section-item-4 .words-04-a{
+    display: none;
+}
+
+.section-item-4 .car{
+    width: 407px ;
+    height: 346px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+    opacity: 1;
+
+}
+.car .car-img{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index:1;
+}
+.car .car-t1f{
+    position: absolute;
+    left: 36%;
     bottom: 200px;
     display: none;
 }
 
-.select .btn-01{
+/* 收货地址 */
+.section-item-4 .t1,
+.section-item-4 .t1-content{
     position: absolute;
-    bottom: 10px;
-
+    left: 50%;
+    transform: translateX(-50%);
+    
 }
-
-/* section-item-3 end*/
-.section-item-4{
-    background: #fed url("../images/t1iresfnxaxxca6rfn-2000-600.png")  no-repeat center bottom;
+.section-item-4 .t1{
+    bottom:180px;
+    opacity: 0;
 }
-.section-item-5{
+.section-item-4 .t1-content{
+    bottom:345px;
+    opacity: 0;
+}
+/* section-item-4 end*/
+
+.section-item-5 {
     background: #d04759 url("../images/t1yisqfa4exxa3gmkg-2000-1500.png");
 }
-.section-item-6{
+
+.section-item-6 {
     background: #84d9ed url("../images/t1dvj.fn0gxxb0_fua-2500-600.png") no-repeat 25% 100%;
 }
-.section-item-7{
-    background: #8ac060 url("../images/t1wf1tfctaxxa3gmkg-2000-1500.png") no-repeat 50% 100% ;
+
+.section-item-7 {
+    background: #8ac060 url("../images/t1wf1tfctaxxa3gmkg-2000-1500.png") no-repeat 50% 100%;
 }
-.section-item-8{
-    background: url("../images/ksgw.png") ;
+
+.section-item-8 {
+    background: url("../images/ksgw.png");
 }
+
 /* 小圆点样式修改 */
-#fp-nav ul li a span, .fp-slidesNav ul li a span{
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
     background: pink;
 }
 
 /*直接进入购物中心*/
-.go{
+
+.go {
     position: fixed;
     right: 10%;
     top: 5%;
-    z-index:1;
+    z-index: 1;
 }
-
-
 
 /* 动画组 */
-
-.updown{
-    animation:fly 3s linear infinite;  /*linear 匀速 infinite 循环 */
+/* 第一屏 飞船 */
+.updown {
+    animation: fly 3s linear infinite;
+    /*linear 匀速 infinite 循环 */
 }
-.shirt-down{
-    animation:shirt-1 2s linear infinite;
+/* 第一屏 沙发 */
+.shirt-down {
+    animation: shirt-1 2s linear infinite;
 }
-
-@keyframes fly{
-    0%{
-        top:10%;
-    }
-    50%{
-        top:20%;
-    }
-    100%{
-        top:10%;
-    }
+/* 第四屏云 */
+.cloud-back1{
+    animation:cloud 60s linear infinite;
 }
 
-@keyframes shirt-1{
-    50%{
-        margin-top:-20px;
+@keyframes fly {
+    0% {
+        top: 10%;
     }
-    100%{
-        margin-top:0;
+    50% {
+        top: 20%;
+    }
+    100% {
+        top: 10%;
     }
 }
 
+@keyframes shirt-1 {
+    50% {
+        margin-top: -20px;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
 
-/* @keyframes  */
+@keyframes cloud{
+
+    50% {
+        left: -10%;
+    }
+    100% {
+        left: 50%;
+    }
+}
