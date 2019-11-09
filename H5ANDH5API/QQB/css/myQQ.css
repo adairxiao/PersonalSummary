@@ -1,0 +1,85 @@
+#bg {
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+    /* top:50%; */
+    left: 50%;
+    transform: translateX(-50%);
+    background: pink;
+}
+
+.row1 div, .row2 div, .row3 div {
+    background: -webkit-linear-gradient(top, #fff, #ddd);
+    border-radius: 50%;
+    transform: rotate(0deg);
+}
+
+
+.row1 .rob1, .row1 .rob2 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    margin-top: 60px;
+    margin-left: 10%;
+    
+    /* border: 1px solid #000; */
+}
+
+
+.row1 .rob2 {
+    margin-top: 60px;
+    margin-left: 70%;
+}
+
+.row2 .rob1, .row2 .rob2, .row2 .rob3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-top: 120px;
+    margin-left: -25%;
+}
+
+.row2 .rob1 {
+    margin-top: 30px;
+}
+
+.row2 .rob2 {
+    margin-top: 250px;
+    margin-left: 40%;
+}
+
+.row2 .rob3 {
+    margin-left: 70%;
+}
+
+.row3 .rob1, .row3 .rob2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    margin-top: 300px;
+    margin-left: -20%;
+}
+
+.row3 .rob2 {
+    margin-top: 450px;
+    margin-left: 80%;
+}
+.row1 div{
+    animation: orbmove 100s linear infinite;
+}
+.row2 div{
+    animation: orbmove 40s linear infinite;
+}
+.row3 div{
+    animation: orbmove 80s linear infinite;
+}
+
+/* 圆动画 */
+@keyframes orbmove {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-2000px) rotate(-3600deg);
+    }
+}
