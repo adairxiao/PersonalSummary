@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local storage</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            background: orangered;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 10px;
+        }
+        fieldset{
+            background: wheat;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" id="username" value=""></br>
+        <input type="text" id="password" value=""></br></br>
+        <fieldset>
+            <legend>sessionStorage</legend>
+            <button id="setSession">设置数据</button>
+            <button id="getSession">获取数据</button>
+            <button id="delSession">删除数据</button>
+            <button id="delAllSession">清除所有数据</button>
+        </fieldset>
+        <fieldset>
+            <legend>localStorage</legend>
+            <button id="setLocal">设置数据</button>
+            <button id="getLocal">获取数据</button>
+            <button id="delLocal">删除数据</button>
+            <button id="delAllLocal">清除所有数据</button>
+        </fieldset>
+    </div>
+</body>
+<script>
+    var username = document.querySelector("#username");
+    var password = document.querySelector("#password");
+
+    var setSession = document.querySelector("#setSession");
+    var getSession = document.querySelector("#getSession");
+    var delSession = document.querySelector("#delSession");
+    var delAllSession = document.querySelector("#delAllSession");
+
+    var setLocal = document.querySelector("#setLocal");
+    var getLocal = document.querySelector("#getLocal");
+    var delLocal = document.querySelector("#delLocal");
+    var delAllLocal = document.querySelector("#delAllLocal");
+
+
+    setSession.addEventListener("click", function () {
+        // 点击存储数据
+        var usernameSessionVal = username.value;
+        var passwordSessionVal = password.value;
+        window.sessionStorage.setItem("usernameSessionVal", usernameSessionVal);
+        window.sessionStorage.setItem("passwordSessionVal", passwordSessionVal);
+    });
+
+    setLocal.addEventListener("click",function(){
+        var usernameLocalVal = username.value;
+        var passwordLocalVal = password.value;
+        window.localStorage.setItem("usernameLocalVal",usernameLocalVal);
+        window.localStorage.setItem("passwordLocalVal",passwordLocalVal);
+    });
+
+
+    getSession.addEventListener("click", function () {
+        username.value = window.sessionStorage.getItem("usernameSessionVal");
+        password.value = window.sessionStorage.getItem("passwordSessionVal");
+    });
+
+    getLocal.addEventListener("click",function(){
+        username.value =window.localStorage.getItem("usernameLocalVal");
+        password.value =window.localStorage.getItem("passwordLocalVal");
+    });
+
+    delSession.addEventListener("click", function () {
+        // var myEvent = new Event("click");
+        // var a = getData.dispatchEvent(myEvent);
+        window.sessionStorage.removeItem("usernameSessionVal");
+        window.sessionStorage.removeItem("passwordSessionVal");
+        alert("删除成功！")
+    });
+
+    delLocal.addEventListener("click",function(){
+        window.localStorage.removeItem("usernameLocalVal");
+        window.localStorage.removeItem("passwordLocalVal");
+        alert("删除成功！")
+    });
+
+    delAllSession.addEventListener("click", function () {
+        window.sessionStorage.clear();
+    });
+    delAllLocal.addEventListener("click", function () {
+        window.localStorage.clear();
+    });
+</script>
+
+</html>

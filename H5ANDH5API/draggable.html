@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            float: left;
+            border: 1px solid red;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #div2 {
+            border-color: green;
+        }
+
+        #p1 {
+            width: 100%;
+            background: coral;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1" draggable="true">拖拽内容</p>
+    </div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+<script>
+    //完整的拖拽+释放
+    // 找到源对象设置拖拽效果
+    // （1）ondragstart
+    var p = document.querySelector("#p1");
+    p.addEventListener("dragstart", function () {
+        console.log("源对象开始被拖拽");
+    });
+    p.addEventListener("drag", function () {
+        console.log("源对象被拖拽过程中");
+
+    });
+    p.addEventListener("dragend", function () {
+        console.log("源对象被拖拽结束");
+
+    })
+</script>
+
+</html>

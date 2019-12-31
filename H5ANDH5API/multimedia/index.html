@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    <link rel="stylesheet" href="./css/player.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <figure>
+        <figcaption>视频播放器</figcaption>
+        <div class="player">
+            <video src="./video/fun.mp4"></video>
+            <div class="controls">
+                <!-- fa-play fa-pause  -->
+                <a href="javaScript:;" class="switch fa fa-play"></a>
+                <div class="progress">
+                    <div class="line"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="timer">
+                    <span class="current">00:00:00</span>/ <span class="total">00:00:00</span>
+                </div>
+                <a href="javascript:;" class="expand fa fa-arrows-alt"></a>
+            </div>
+        </div>
+    </figure>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        var video = $("video").get(0);
+        // console.log(video);
+
+        function formatTime(time) {
+            var h = Math.floor(time / 3600);
+            var m = Math.floor(time % 3600 / 60);
+            var s = Math.floor(time % 60);
+
+            return (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+
+        }
+        $(video).on("canplay", function () {
+            $(this).show();
+            var totalTime = formatTime(video.duration);
+            $(".total").text(totalTime);
+        });
+
+
+        $(".switch").on("click", function () {
+            if ($(this).hasClass("fa-play")) {
+                video.play();
+                $(this).attr("class", "switch fa fa-pause");
+            } else {
+                video.pause();
+                $(this).attr("class", "switch fa fa-play");
+            }
+
+        });
+
+
+        // 定时器
+            // 获取视频播放的进度
+    </script>
+</body>
+
+</html>
