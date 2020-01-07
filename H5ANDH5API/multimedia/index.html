@@ -33,37 +33,122 @@
     <script src="./js/jquery.min.js"></script>
     <script>
         var video = $("video").get(0);
+
         // console.log(video);
 
         function formatTime(time) {
             var h = Math.floor(time / 3600);
             var m = Math.floor(time % 3600 / 60);
             var s = Math.floor(time % 60);
-
             return (h < 10 ? "0" + h : h) + ":" + (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
-
         }
+
+        // 1. 当我们浏览器可以播放视频的时候，就让video 显示出来  让我们的时间显示出来
+        var loadFulfil = false;
         $(video).on("canplay", function () {
             $(this).show();
             var totalTime = formatTime(video.duration);
             $(".total").text(totalTime);
+            loadFulfil = true;
         });
-
-
+        // 2. 播放和暂停按钮
         $(".switch").on("click", function () {
+            if (!loadFulfil) {
+                alert("未加载完成,请稍后...");
+                return;
+            }
+            // 当我们点击按钮，如果有 fa-play  这个 我们就切换为 fa-pause   并且播放
+            // var intervalID = null;
             if ($(this).hasClass("fa-play")) {
                 video.play();
                 $(this).attr("class", "switch fa fa-pause");
+
+                // if (intervalID != null) {
+                //     return;
+                // }
+                // // 3. 进度条显示   当目前的播放位置已更改时
+                // intervalID = window.setInterval(function () {
+                //     var progressWidth = $(".progress").width();
+                //     var lineWidth = progressWidth * (video.currentTime / video.duration);
+                //     $(".line").animate({
+                //         "width": lineWidth
+                //     }, 1000);
+                //     // 当前播放时间进度
+                //     $(".current").text(formatTime(video.currentTime));
+                // }, 1000);
+
             } else {
                 video.pause();
                 $(this).attr("class", "switch fa fa-play");
             }
+        });
+        // 3.进度条显示
+        video.addEventListener("timeupdate", function () {
+            var lineWidth = (video.currentTime / video.duration) * 100 + "%";
+            $(".line").css({
+                "width": lineWidth
+            });
+            // 当前播放时间进度
+            $(".current").text(formatTime(video.currentTime));
 
+        });
+        // 5. 全屏显示  fa-compress   fa-arrows-alt
+        $(".expand").on("click", function () {
+            // 判断是否是全屏显示
+            console.log(video.requestFullscreen);
+
+            if (video.requestFullscreen) {
+                if (!video.webkitfullscreenElement) {
+                    video.webkitRequestFullscreen();
+                    // 切换图标
+                    // $(this).addClass('fa-compress').removeClass("fa-arrows-alt");  
+                } else if (document.webkiTexitFullscreen) {
+                    // 这段代码不会执行到。
+                    document.webkiTexitFullscreen();
+
+                }
+
+            } else {
+
+            }
+
+
+
+        });
+        // 7.拖动进度条
+        $(".progress").on("click", function (e) {
+            var e = event || window.event;
+            // console.log(e.pageX);
+            //2.get Mouse position over the page 
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            // var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var pagex = e.pageX || scrollX + e.clientX;
+            // var pagey = e.pageY || scrollY + e.clientY;
+            //3.get box poitison
+            var player = document.querySelector(".player");
+            var controls = document.querySelector(".controls");
+            var progress = document.querySelector(".progress");
+
+            var boxX = player.offsetLeft + controls.offsetLeft + progress.offsetLeft;
+            // var boxY = player.offsetTop + controls.offsetTop + progress.offsetTop;
+            //4.Mouse position - box position Assignment to the contents of the box。
+
+            var proportion = (pagex - boxX + 1) / $(".progress").width();
+            // formatTime(video.duration*proportion);
+            video.currentTime = video.duration * proportion;
+
+
+
+        });
+        // 6. 视频完成之后，重置操作
+        $(video).on("ended", function () {
+            // 当前的视频时间清零 
+            video.currentTime = 0;
+            // 同时还要把 播放按钮改为 play
+            $(".switch").attr("class", "switch fa fa-play");
         });
 
 
-        // 定时器
-            // 获取视频播放的进度
     </script>
 </body>
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        header,
+        footer,
+        nav {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<!-- <script>
+        // 想要解决ie低版本可以使用创建标签的方式去实现
+        document.createElement("header");
+        document.createElement("footer");
+    </script> -->
+<!-- [if ! ie] 不等于ie><endif -->
+<!-- [if lt ie 6]> 大于<end-->
+<!-- [if lte ie 6]> 大于等于<end-->
+<!-- [if ie 6]> 等于<end-->
+
+
+<body>
+
+
+    <header>123</header>
+    <footer>123</footer>
+    <nav>123</nav>
+</body>
+
+</html>
