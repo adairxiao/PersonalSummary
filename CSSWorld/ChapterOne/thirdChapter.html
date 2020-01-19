@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/publicStyle.css">
+    <link rel="stylesheet" href="./css/thirdChapter.css">
+    <title>thirdCapter</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <!-- 例子3-1-1 -->
+        <h2>block水平元素与清除浮动实例页面</h2>
+        <div class="box typesetting-container">
+            <div class=" clear block box-bg ">
+                <img src="./images/guoer.jpg" class="img-1">
+            </div>
+            <br>
+            <div class="set-display">
+                <span>请选择清除浮动的方法：</span><br>
+                <pre><code>.clear:after {
+                content: '';
+                display: <select id="select">
+                    <option value="">请选择</option>
+                    <option value="block">block</option>
+                    <option value="table">table</option>
+                    <option value="list-item">list-item</option>
+                </select>;
+                clear: both;
+            }
+                </code>
+            </pre>
+            </div>
+        </div>
+        <!-- 总结： -->
+        <!--清除浮动选择 一般使用block并不会使用list-item
+            1.  display设置为list-item，会出现项目符号，需要再加一行list-style：none
+            2. ie浏览器不支持伪元素的display值设置为list-item，普通元素设置display：list-item有效，除了::before and ::after
+        -->
+        <!-- 
+            为什么设置display：list-item会出现项目符号？
+                因为list-item 比块级元素多了一个标记盒子（marker box），这个标记盒子专门用来放置项目符号的
+            为什么ie不支持伪元素的display设置为list-item？
+                ie在伪元素中无法创建“标记盒子”
+        -->
+        <!-- display：inline-block 是由外在的内联盒子和内在块级容器盒子的组成
+            display：inline 内外均有内联盒子组成
+            display：block 内外均有块级盒子组成
+            display：table 是由外在的块级盒子和内在table容器盒子的组成
+            -->
+        <span>******************************************************************</span>
+
+        <h2>外部尺寸”block元素的流动性示意实例页面:</h2>
+        <!-- 例子3-2-3 -->
+        <div class="nav-content">
+            <h4>无宽度，借助流动性</h4>
+            <div class="nav">
+                <a href="" class="nav-a">导航1</a>
+                <a href="" class="nav-a">导航2</a>
+                <a href="" class="nav-a">导航3</a>
+            </div>
+            <br>
+            <h4>width:100%</h4>
+            <!-- 当设置为width:100%，将原来的margin+padding+content直接作用于content -->
+            <div class="nav">
+                <a href="" class="nav-a width">导航1</a>
+                <a href="" class="nav-a width">导航2</a>
+                <a href="" class="nav-a width">导航3</a>
+            </div>
+        </div>
+        <br>
+        <!-- 充分利用可用：
+        width：auto是默认值，
+        代表：div、p等元素
+        叫做：fill-available -->
+        <!-- 外部尺寸和流的特性
+        1.正常流的默认宽度是铺满整个容器，为方便理解为说为width：100%，
+        2.如果我们为外部尺寸设置了宽度，流动性就会消失
+            所谓流动性：并不是看上去width：100%显示这么简单，
+            而是一种浏览器是现实时对margin、border、padding和content内容区域自动分配水平空间的机制
+        3.记住fill-available特性，要保持无宽度。
+    -->
+
+        <span>******************************************************************</span>
+
+
+        <h2>按钮元素“包裹性”示意实例页面:</h2>
+        <!-- 例子3-2-4 -->
+        <div class="box">
+            <!-- button and input type=“button”的元素是inline-bolck元素 -->
+            <button>按钮</button>
+        </div>
+        <div class="box">
+            <button>文字再多一点</button>
+        </div>
+
+        <!-- button and input type=“button”的元素是inline-bolck元素 -->
+        <!-- input没有自动换行是因为 white-space：pre; 而button word-spacing: normal; -->
+        <div class="box">
+            <button>按钮文字越多宽度越宽（包裹，内部尺寸特性），但不会超过容器宽度（自适应性）</button>
+        </div>
+        <div class="box box-oF">
+            <input type="button" value="按钮文字越多宽度越宽（包裹，内部尺寸特性），但不会超过容器宽度（自适应性）">
+        </div>
+
+        <span>---------------------------------</span>
+
+        <h4>按钮元素“包裹性”示意实例</h4>
+        <!-- 例子3-2-5 -->
+        <div class="box box-inline-block">
+            <p id="conMore" class="p-content">文字内容</p>
+            <p><button id="btnMore">新增文字</button></p>
+        </div>
+
+        <span>---------------------------------</span>
+
+        <h4>元素不具备“包裹性”示意实例</h4>
+        <div class="box box-block">
+            <span class="white-space-nowrap">紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯紫薯</span>
+        </div>
+
+        <span>---------------------------------</span>
+        <br>
+
+
+        <h4>首选最小宽度:东亚文字、西方文字以及其他非英文字符的差别</h4>
+        <!-- 例子3-2-5-1 -->
+        <div class="typesetting-container tc-height">
+            <div class="box outside-width typesetting-level-1">
+                1.
+                <div class="div-inline-block">这个是东亚文字</div>
+            </div>
+            <div class="box outside-width typesetting-level-1">
+                2.
+                <div class="div-inline-block">The is Western script</div>
+            </div>
+            <div class="box outside-width typesetting-level-1">
+                3.
+                <div class="div-inline-block">Other non-English characters</div>
+            </div>
+        </div>
+        <span>西方文字以及其他非英文字符和东亚文字一样每个字符都用最小宽度</span>
+        <div class="box outside-width  word-break">
+            4.
+            <div class="div-inline-block">Other non-English characters</div>
+        </div>
+        <span>---------------------------------</span>
+        <br>
+
+        <h4>首选最小宽度：实现凹凸效果</h4>
+        <!-- 例子3-2-6 -->
+        <div class="typesetting-container tc-height">
+            <div class="ao-1  outside-width ">
+                <div class="div-inline-block">love</div>
+                <div class="div-inline-block">你</div>
+                <div class="div-inline-block">love</div>
+            </div>
+            <div class="tu-1 outside-width ">
+                <div class="div-inline-block">你</div>
+                <div class="div-inline-block">love</div>
+                <div class="div-inline-block">你</div>
+            </div>
+            <br>
+            <span class="ao-2 typesetting-level-2"></span>
+            <span class="tu-2 typesetting-level-2"></span>
+            <br>
+        </div>
+
+        <h4>最大宽度</h4>
+        <!-- 例子3-2-7-1 -->
+        <div class="box clearW">
+            我是div文本
+            <span>我是span的文本</span>
+            <button>我是button的文本</button>
+            <img src="" alt="我是图片的文本">
+            <br>
+            <p>我是p的文本</p>
+        </div>
+        <h4>“最大宽度”与iScroll水平滚动实例页面</h4>
+        <!-- 例子3-2-7 -->
+        <script src="./js/iscroll.js"></script>
+        <div class="box">
+            <div id="wrapper" class="wrapper">
+                <ul>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                    <li><img src="./images/timg (5).jpg" width="256" height="192"></li>
+                </ul>
+            </div>
+        </div>
+
+        <span>---------------------------------</span>
+
+        <h4>绝对定位和非绝对定位元素百分比值计算区别实例页面</h4>
+        <!--例子 3-2-11 -->
+        <div class="box box-h">
+            <div class="child">高度100px</div>
+        </div>
+        <div class="box box-h rel">
+            <div class="child">高度160px</div>
+        </div>
+
+
+        <!-- 收缩与包裹：
+        代表：浮动、绝对定位、inline-block或者table元素 
+        叫做 fit-content-->
+        <!-- 内部尺寸与流动特性
+        1. 包裹性：
+            它有自适应性，指元素尺寸有内部元素决定，但是永远小于“包含块容器的尺寸”
+        2.首选最小宽度
+            是指元素最合适的最小宽度
+            在css世界中图片和文字权重是大于布局的
+            替换元素的最小宽度就是该内容本身的宽度，比如图片
+        3.最大宽度
+            如果内部没有块级元素或者块级元素没有设置宽度值情况下，则最大宽度就是“连续内联元素”
+        -->
+        <br>
+        <span>******************************************************************</span>
+        <h2>max-width/min-width、max-height/min-height理解</h2>
+        <h4>与众不同的初始值</h4>
+        <!-- 例子3-3-1.1 -->
+        <div class="box box-set-height-3-3-1-1">
+            <div class="min-w-series-auto">min-width set auto</div>
+            <div class="set-height">
+                <div class="min-h-series-auto">min-height set auto</div>
+            </div>
+            <br>
+            <div class="min-w-series-notauto">min-width* Do not set auto</div>
+            <div class="set-height">
+                <div class="min-h-series-notauto">min-height* Do not set auto</div>
+            </div>
+        </div>
+
+        <!-- 例子3-3-1.1 -->
+        <!-- 总结
+            width/height的初始值是auto，而>max-width/min-width、max-height/min-height的初始值要复杂一些
+            max-*系列的初始值为none而min-*系列的初始值为auto（mdn显示为0）
+        -->
+        <span>---------------------------------</span>
+        <!-- 例子 3-3-1 -->
+        <h4>max-width/min-width、max-height/min-height覆盖width/height实例页面</h4>
+        <div class="box">
+            <img src="./images/timg (5).jpg" style="width:240px!important; height:150px!important;" alt="" class="maxw">
+        </div>
+        <div class="box">
+            <img src="./images/timg (5).jpg" style="width:200px!important; height:100px!important;" alt="" class="minw">
+        </div>
+        <span>---------------------------------</span>
+        <!--  超越!important
+            max-width/min-width、max-height/min-height权重大于!important
+        -->
+        <!-- 超越最大
+            当min的值大于max，这个时候是冲突的，如果以按照超越最大原则，这个时候是max就会被干掉。而min作为胜利方不言而喻
+        -->
+
+        <br>
+        <span>******************************************************************</span>
+            
+    </div>
+    <script src="./js/thirdChapter.js"></script>
+</body>
+
+</html>

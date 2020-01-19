@@ -1,0 +1,321 @@
+        /* 例子3-1-1 start*/
+
+        .img-1 {
+            width: 200px;
+            height: 300px;
+            float: left;
+        }
+
+        .box-bg {
+            padding: 10px;
+            background-color: #cd0000;
+        }
+
+        /* 需要切换的伪元素 */
+
+        .clear.block::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .clear.table::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clear.list-item::after {
+            content: "";
+            display: list-item;
+            clear: both;
+        }
+
+        /* 布局不需要关注 */
+
+        .set-display {
+            width: 300px;
+            height: 200px;
+            background-color: white;
+            padding: 10px;
+            text-align: left;
+            font-size: 18px;
+            font-weight:400;
+            font-family:  "Microsoft YaHei" !important;
+            border: 1px dashed #ccc;
+            overflow: hidden;
+        }
+        
+
+        /* 例子3-1-1 end*/
+
+        /* 例子3-2-3 start*/
+
+        .width {
+            width: 100%;
+        }
+
+        .nav-content {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            background-color: #cd0000;
+        }
+
+        .nav-a {
+            display: block;
+            margin: 0 10px;
+            padding: 9px 10px;
+            border-bottom: 1px solid #b70000;
+            border-top: 1px solid #de3636;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-b {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 9px 10px;
+            border-bottom: 1px solid #b70000;
+            border-top: 1px solid #de3636;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* 例子3-2-3 end*/
+
+        /* 例子3-2-4 start*/
+
+        .box-oF {
+            overflow: auto;
+        }
+
+        /* 例子3-2-4 end*/
+
+        /* 例子3-2-5 start*/
+
+        .box-inline-block {
+            padding: 10px;
+            background-color: #cd0000;
+            text-align: center;
+        }
+
+        .p-content {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .box-block {
+            background-color: red;
+            padding: 10px
+        }
+
+        .white-space-nowrap {
+            white-space: nowrap;
+        }
+
+        /* 例子3-2-5 end*/
+
+        /* 例子3-2-5-1 start*/
+
+        .div-inline-block {
+            display: inline-block;
+            background-color: red;
+        }
+
+        .outside-width {
+            width: 0px;
+        }
+
+        .word-break {
+            word-break: break-all;
+        }
+
+        .typesetting-container {
+            position: relative;
+        }
+
+        .tc-height {
+            height: 200px;
+        }
+
+        .ao-1, .tu-1, .ao-2, .tu-2, .typesetting-level-1 {
+            position: absolute;
+        }
+
+        .typesetting-level-1:nth-child(1) {
+            left: 40%;
+        }
+
+        .typesetting-level-1:nth-child(2) {
+            left: 50%;
+        }
+
+        .typesetting-level-1:nth-child(3) {
+            left: 60%;
+        }
+
+        /* 例子3-2-5-1 end*/
+
+        /* 例子3-2-6 start */
+
+        .ao-1 {
+            left: 47%;
+        }
+
+        .tu-1 {
+            left: 53%;
+        }
+
+        .ao-2, .tu-2 {
+            display: inline-block;
+            width: 0;
+            font-size: 14px;
+            line-height: 18px;
+            margin-top: 100px;
+            color: #fff;
+        }
+
+        .ao-2:before, .tu-2:before {
+            outline: 2px solid #cd0000;
+            font-family: Consolas, Monaco, monospace;
+        }
+
+        .ao-2::before {
+            content: "love你love";
+        }
+
+        .tu-2::before {
+            content: "你love你";
+        }
+
+        .tu-1, .tu-2 {
+            direction: rtl;
+        }
+
+        .typesetting-level-2:nth-child(4) {
+            left: 47%;
+        }
+
+        .typesetting-level-2:nth-child(5) {
+            left: 53%;
+        }
+
+        /* 例子3-2-6 end */
+
+        /* 例子3-2-7-1 start */
+
+        .clearW {
+            width: auto;
+        }
+
+        /* 例子3-2-7-1 end */
+
+        /* 例子3-2-7 start */
+
+        .wrapper {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .wrapper>ul {
+            position: absolute;
+            white-space: nowrap;
+            padding: 0;
+        }
+
+        .wrapper li {
+            display: inline-block;
+        }
+
+        /* 例子3-2-7 end */
+
+        /* 例子3-2-11 start */
+
+        .box-h {
+            height: 160px;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: #beceeb;
+        }
+
+        .child {
+            height: 100%;
+            background-color: #cd0000;
+        }
+
+        .child::before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .rel>.child {
+            width: 100%;
+            position: absolute;
+        }
+
+        /* 例子3-2-11 end */
+
+        /* 例子3-3-1.1 start*/
+
+        .box-height-3-3-1-1 {
+            height: 300px;
+        }
+
+        .set-height {
+            height: 150px;
+        }
+
+        .customize--box-wh {
+            width: 240px;
+            height: 150px;
+        }
+
+        .min-w-series-auto, .min-h-series-auto, .min-w-series-notauto, .min-h-series-notauto {
+            background-color: #ccc;
+            border: 1px dashed red;
+            transition: min-width 3s, min-height 3s;
+            box-sizing: border-box;
+        }
+
+        .min-w-series-notauto {
+            min-width: 0;
+        }
+
+        .min-h-series-notauto {
+            min-height: 0;
+        }
+
+        .min-w-series-notauto:hover, .min-w-series-auto:hover {
+            min-width: 300px;
+        }
+
+        .min-h-series-notauto:hover, .min-h-series-auto:hover {
+            min-height: 150px;
+        }
+
+        /*  例子3-3-1.1 end */
+
+        /* 例子 3-3-1 start */
+
+        .maxw {
+            max-width: 200px;
+            max-height: 100px;
+        }
+
+        .minw {
+            min-width: 240px;
+            min-height: 150px;
+        }
+
+        /* 例子 3-3-1 end */

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FireFox mousedown干掉:active实例页面</title>
+    <style>
+        .active-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #cd0000;
+            text-decoration: none;
+            color: white;
+        }
+
+        .active-btn:active {
+            background-color: #ae0000;
+        }
+    </style>
+</head>
+
+<body>
+    <span>正常情况</span><br />
+    <a href="javascript:;" class="active-btn">down</a><br>
+    <span>包含js</span><br>
+    <a href="javascript:;" id="button" class="active-btn">down</a><br>
+    <span></span>
+
+    <script>
+        var button = document.querySelector("#button");
+
+        if (button.addEventListener) {
+            button.addEventListener("mousedown", function (event) {
+                // 取消默认行为
+                event.preventDefault();
+            });
+        }
+    </script>
+</body>
+
+</html>
