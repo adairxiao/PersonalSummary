@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        .bg-layout {
+            width: 100%;
+            text-align: center;
+        }
+
+        .content {
+            margin: 30px auto 0;
+            width: 1024px;
+            
+        }
+        .content-data{
+            height: 800px;
+            overflow:auto;
+        }
+        .content table {
+            text-align: center;
+            width: 100%;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        .content table td,th{
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+    
+        }
+
+        .pagination {
+            margin: 0 auto;
+            width: 800px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pagination ul {
+            list-style: none;
+            float: left;
+            position: relative;
+            left: 50%;
+        }
+
+        .pagination ul li {
+            float: left;
+            margin: 0 10px;
+            border: 1px solid black;
+            padding: 5px;
+            position: relative;
+            right: 50%;
+            line-height: 25px;
+            color: black;
+        }
+
+        .pagination ul li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .Selected-li {
+            background-color: black;
+            border: 1px solid white;
+            color: white !important;
+
+        }
+        .Selected-a{
+            color: white !important;
+        }
+
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+
+        .Black-mask {
+            // background: black;
+            background-color:rgba(0,0,0,0.5);
+            width: 100%;
+            height: 100%;
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            // opacity:0.5;
+            display: none;
+            
+        }
+        .bm-content{
+            position:absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background: white;
+            
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            
+            
+        }
+        .shutDown{
+            background: white;
+            position:absolute;
+            top: -10px;
+            right: -12px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 50px;
+            z-index: 2;
+        }
+        .img-content{
+            overflow:auto;
+            width: 800px;
+            height: 600px;
+        }
+        .img-big{
+            width: 100%;
+            height: auto;
+            
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bg-layout">
+        <div class="content">
+        <div class="content-data">
+            <table>
+                <thead>
+                    <tr>
+                        <th>user_id</th>
+                        <th>用户头像</th>
+                        <th>用户名</th>
+                        <th>注册日期</th>
+                        <th>手机号</th>
+                        <th>生日</th>
+                        <th>性别</th>
+                        <th>职业</th>
+                        <th>身高</th>
+                        <th>体重</th>
+                        <th>工作城市</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{each list}}
+                    <tr>
+                        <td>{{$value.user_id}}</td>
+                        <td><img src="/www/{{$value.user_logo}}" alt="" width="50px" height="50px"></td>
+                        <td>{{$value.nick_name}}</td>
+                        <td>{{$value.created_at}}</td>
+                        <td>{{$value.user_phone}}</td>
+                        <td>{{$value.user_birthday}}</td>
+                        <td>{{$value.user_gender}}</td>
+                        <td>{{$value.user_type_text}}</td>
+                        <td>{{$value.height}}</td>
+                        <td>{{$value.weight}}</td>
+                        <td>{{$value.city_name}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+
+            </table>
+            </div>
+            <div class="pagination">
+                <ul>
+                    <li><span class="previous">上一页</span></li>
+                    {{each pagenum}}
+                    <li><a href ="http://192.168.3.124:3000/index?page={{$value}}";>{{$value}}</a></li>
+                    
+                    {{/each }}
+                    <li><span class="next">下一页</span></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+<div class="Black-mask">
+        <div class="bm-content">
+            <span class="shutDown">X</span>
+            <div class="img-content">
+                <img src="" alt="" class="img-big">
+            </div>
+        </div>
+    </div>
+    <script>
+        let liAll = document.querySelectorAll('li');
+        let aTag = document.querySelectorAll('li a');
+        let pagination = document.querySelector('.pagination');
+        let previous = document.querySelector('.previous');
+        let next=document.querySelector('.next');
+        // console.log(previous);
+        let total = {{totalpage}};
+        cur = {{cur}};
+        liAll.forEach(v => {
+            v.setAttribute('class', '');
+        })
+        aTag.forEach(v => {
+            v.setAttribute('class', '');
+        })
+        aTag.forEach(v => {
+            if (cur == v.innerHTML) {
+                v.setAttribute('class', 'Selected-a');
+                v.parentNode.setAttribute('class', 'Selected-li');
+            }
+
+        })
+        var Page_up = document.createElement('a');
+        var Page_down= document.createElement('a');
+        if(total!= 1){
+            if (cur ===1){
+                next.innerHTML = '';
+                Page_down.textContent = '下一页';
+                Page_down.href = 'http://192.168.3.124:3000/index?page='+(cur+1);
+                next.appendChild(Page_down);
+                
+            }else if(cur===total){
+                previous.innerHTML = '';
+                Page_up.textContent = '上一页';
+                Page_up.href = 'http://192.168.3.124:3000/index?page='+(cur-1);
+                previous.appendChild(Page_up);
+            }else{
+                next.innerHTML = '';
+                Page_down.textContent = '下一页';
+                Page_down.href = 'http://192.168.3.124:3000/index?page='+(cur+1);
+                next.appendChild(Page_down);
+
+                previous.innerHTML = '';
+                Page_up.textContent = '上一页';
+                Page_up.href = 'http://192.168.3.124:3000/index?page='+(cur-1);
+                previous.appendChild(Page_up);
+                
+            }
+        }
+
+
+
+
+
+
+
+        var tbody = document.querySelector('tbody');
+        var open_big_img = document.querySelector('.img-big');
+        var Blackmask = document.querySelector('.Black-mask');
+        var shutDown = document.querySelector('.shutDown');
+        tbody.addEventListener('click',(e)=>{
+            if(e.target && e.target.nodeName == "IMG"){
+                Blackmask.style.display = "block";
+                let small_img = e.target.getAttribute("src");
+                open_big_img.setAttribute("src",small_img)
+                console.log(small_img);
+                
+            }
+            
+        });
+
+        shutDown.addEventListener('click',(e)=>{
+            Blackmask.style.display = "none";
+        });
+
+    </script>
+</body>
+
+</html>
