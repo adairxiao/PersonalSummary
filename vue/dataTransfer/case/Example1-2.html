@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <child></child>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      
+      const Child = Vue.extend({
+        template: '<h2>{{ content }}</h2>',
+        data(){
+          return {content:""}
+        },
+        created(){
+          this.content = this.$parent.$data.message
+        }
+      })
+
+      new Vue({
+        data: {
+          message: 'This is parent',
+        },
+        components: {
+          Child,
+        },
+      }).$mount('#app')
+    </script>
+  </body>
+</html>

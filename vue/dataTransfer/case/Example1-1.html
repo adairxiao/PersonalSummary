@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <child :content="message"></child>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const Child = Vue.extend({
+        template: '<h2 @click="changeContent">{{ content }}</h2>',
+        props: {
+          content: {
+            type: String,
+            default: 'This is child',
+          },
+        },
+        methods: {
+          changeContent() {
+            console.log("!!!");
+            this.content = "修改成功"
+          },
+        },
+      })
+
+      new Vue({
+        data: {
+          message: 'This is parent',
+        },
+        components: {
+          Child,
+        },
+      }).$mount('#app')
+    </script>
+  </body>
+</html>
