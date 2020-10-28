@@ -12,19 +12,17 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       const Child = Vue.extend({
-        template: '<h2 @click="changeContent">{{ content }}</h2>',
+        template: '<h2>{{ content }}</h2>',
         props: {
           content: {
             type: String,
             default: 'This is child',
           },
         },
-        methods: {
-          changeContent() {
-            console.log("!!!");
-            this.content = "修改成功"
-          },
-        },
+      })
+
+      const grandson = vue.extend({
+        template : '<h2>{{ content }}</h2>'
       })
 
       new Vue({

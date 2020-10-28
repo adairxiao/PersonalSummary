@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <child  @change-content="monitorChange" :content="message"></child>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const Child = Vue.extend({
+        template: '<h2 @click="changeParentContent">{{ content }}</h2>',
+        props: {
+          content: {
+            type: String,
+            default: 'This is child',
+          },
+        },
+        methods: {
+          changeParentContent() {
+            this.$emit("change-content","This is after modification parent test")
+          },
+        },
+      })
+
+      new Vue({
+        data: {
+          message: 'This is parent',
+        },
+        methods:{
+          monitorChange(val){
+            this.message = val
+          }
+        },
+        components: {
+          Child,
+        },
+      }).$mount('#app')
+    </script>
+  </body>
+</html>

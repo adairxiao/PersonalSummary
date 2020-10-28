@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <child1></child1>
+      <child2></child2>
+      <button @click="load">刷新</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // 事件总线
+      const Bus = new Vue()
+
+      const Child1 = Vue.extend({
+        template:
+          '<h2>child1:<button @click="run">说</button>{{content}}</h2>',
+        data() {
+          return {
+            content: '',
+          }
+        },
+        methods: {
+          run() {
+            let text = '歪歪歪,在吗?'
+            this.content = text
+            // 发送send事件
+            Bus.$emit('send', text)
+          },
+        },
+      })
+
+      const Child2 = Vue.extend({
+        template: '<h2>child2(复读机):{{content}}</h2>',
+        data() {
+          return {
+            content: '',
+          }
+        },
+        mounted() {
+          let self = this
+          // 接收send事件
+          Bus.$on('send', function (val) {
+            self.$nextTick(function () {
+              self.content = val
+            })
+          })
+        },
+
+      })
+
+      // root
+      new Vue({
+        data: {
+          message: 'This is parent',
+        },
+        components: {
+          Child1,
+          Child2,
+        },
+        methods:{
+          load(){
+            window.location.reload()
+          }
+        }
+      }).$mount('#app')
+    </script>
+  </body>
+</html>
